@@ -13,6 +13,13 @@ services:
           name: sales-crm-db
           property: connectionString
 
+  - type: web
+    name: sales-crm-frontend
+    runtime: docker
+    dockerContext: ./frontend
+    dockerfilePath: ./frontend/Dockerfile
+    plan: free
+
 databases:
   - name: sales-crm-db
     plan: free

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="0" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ProductNotFound" xml:space="preserve">
+    <value>Product with ID '{0}' does not exist in the system.</value>
+  </data>
+  <data name="ProductCodeExists" xml:space="preserve">
+    <value>Product code (SKU) '{0}' already exists in the system. Please enter a different SKU.</value>
+  </data>
+  <data name="ProductCodeConflict" xml:space="preserve">
+    <value>Product code (SKU) '{0}' is already used by another product.</value>
+  </data>
+  <data name="ProductImageSaveError" xml:space="preserve">
+    <value>Error decoding and saving product image: {0}</value>
+  </data>
+  <data name="ProductCreateSuccess" xml:space="preserve">
+    <value>Product added successfully.</value>
+  </data>
+  <data name="ProductUpdateSuccess" xml:space="preserve">
+    <value>Product updated successfully.</value>
+  </data>
+  <data name="ProductDeleteSuccess" xml:space="preserve">
+    <value>Product deleted successfully.</value>
+  </data>
+  <data name="ProductDeleteSoftSuccess" xml:space="preserve">
+    <value>Product has active transactions or inventory. Automatically changed status to 'Inactive' (Soft-delete) to preserve data integrity.</value>
+  </data>
+  <data name="ProductRouteIdMismatch" xml:space="preserve">
+    <value>Product ID in the route mismatch with body data.</value>
+  </data>
+  <data name="LoginInvalidCredentials" xml:space="preserve">
+    <value>Incorrect username or password.</value>
+  </data>
+  <data name="LoginAccountLocked" xml:space="preserve">
+    <value>Your account has been locked.</value>
+  </data>
+  <data name="LoginSuccess" xml:space="preserve">
+    <value>Login successful.</value>
+  </data>
+  <data name="ProductCodeRequired" xml:space="preserve">
+    <value>Product code (SKU) cannot be empty.</value>
+  </data>
+  <data name="ProductCodeMaxLength" xml:space="preserve">
+    <value>Product code cannot exceed 50 characters.</value>
+  </data>
+  <data name="ProductNameRequired" xml:space="preserve">
+    <value>Product name cannot be empty.</value>
+  </data>
+  <data name="ProductNameMaxLength" xml:space="preserve">
+    <value>Product name cannot exceed 200 characters.</value>
+  </data>
+  <data name="ProductSellingPriceRange" xml:space="preserve">
+    <value>Selling price must be greater than or equal to 0.</value>
+  </data>
+  <data name="ProductImportPriceRange" xml:space="preserve">
+    <value>Import price must be greater than or equal to 0.</value>
+  </data>
+  <data name="ProductIdRequired" xml:space="preserve">
+    <value>Product ID is required.</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>User with ID '{0}' does not exist in the system.</value>
+  </data>
+  <data name="UsernameExists" xml:space="preserve">
+    <value>Username '{0}' already exists. Please choose a different username.</value>
+  </data>
+  <data name="EmailExists" xml:space="preserve">
+    <value>Email address '{0}' is already registered by another account.</value>
+  </data>
+  <data name="RoleNotFound" xml:space="preserve">
+    <value>Role '{0}' does not exist in the system.</value>
+  </data>
+  <data name="BranchNotFound" xml:space="preserve">
+    <value>Branch with ID '{0}' does not exist in the system.</value>
+  </data>
+  <data name="UserCreateSuccess" xml:space="preserve">
+    <value>User created successfully.</value>
+  </data>
+  <data name="UserUpdateSuccess" xml:space="preserve">
+    <value>User updated successfully.</value>
+  </data>
+  <data name="UserDeleteSuccess" xml:space="preserve">
+    <value>User deleted successfully.</value>
+  </data>
+  <data name="UserDeleteAdminSelfError" xml:space="preserve">
+    <value>Cannot delete your own logged-in admin account.</value>
+  </data>
+  <data name="UserUsernameRequired" xml:space="preserve">
+    <value>Username cannot be empty.</value>
+  </data>
+  <data name="UserPasswordRequired" xml:space="preserve">
+    <value>Password is required and must be at least 6 characters.</value>
+  </data>
+  <data name="UserFullNameRequired" xml:space="preserve">
+    <value>Full name cannot be empty.</value>
+  </data>
+  <data name="UserEmailRequired" xml:space="preserve">
+    <value>Email address cannot be empty.</value>
+  </data>
+  <data name="UserEmailInvalid" xml:space="preserve">
+    <value>Email address format is invalid.</value>
+  </data>
+  <data name="UserRoleRequired" xml:space="preserve">
+    <value>User role selection is required.</value>
+  </data>
+  <data name="UserIdRequired" xml:space="preserve">
+    <value>User ID is required.</value>
+  </data>
+  <data name="RouteIdMismatch" xml:space="preserve">
+    <value>The ID in the route does not match the ID in the request body.</value>
+  </data>
+  <data name="OrderNotFound" xml:space="preserve">
+    <value>Order with ID '{0}' does not exist in the system.</value>
+  </data>
+  <data name="OrderCreateSuccess" xml:space="preserve">
+    <value>Order created successfully.</value>
+  </data>
+  <data name="OrderInsufficientStock" xml:space="preserve">
+    <value>Insufficient stock for product '{0}'. Available: {1}, requested: {2}.</value>
+  </data>
+  <data name="OrderProductBatchNotFound" xml:space="preserve">
+    <value>Product batch '{0}' does not exist or has expired.</value>
+  </data>
+  <data name="OrderProductBatchInsufficient" xml:space="preserve">
+    <value>Product batch '{0}' has insufficient stock. Available: {1}, requested: {2}.</value>
+  </data>
+  <data name="PaymentOrderAlreadyPaid" xml:space="preserve">
+    <value>This order is already fully paid.</value>
+  </data>
+  <data name="PaymentAmountInvalid" xml:space="preserve">
+    <value>Payment amount must be greater than 0.</value>
+  </data>
+  <data name="PaymentCreateSuccess" xml:space="preserve">
+    <value>Payment processed successfully.</value>
+  </data>
+  <data name="LocationNotFound" xml:space="preserve">
+    <value>Shelf/Location with ID '{0}' does not exist at this branch.</value>
+  </data>
+  <data name="StockTransferNotFound" xml:space="preserve">
+    <value>Stock transfer with ID '{0}' does not exist.</value>
+  </data>
+  <data name="StockTransferStatusInvalid" xml:space="preserve">
+    <value>Stock transfer status must be Pending or Shipped to receive.</value>
+  </data>
+  <data name="StockTransferDetailNotFound" xml:space="preserve">
+    <value>Stock transfer has no items.</value>
+  </data>
+  <data name="InventoryImportSuccess" xml:space="preserve">
+    <value>Stock batches imported successfully.</value>
+  </data>
+  <data name="StockTransferCreateSuccess" xml:space="preserve">
+    <value>Stock transfer created and shipped successfully.</value>
+  </data>
+  <data name="StockTransferReceiveSuccess" xml:space="preserve">
+    <value>Stock transfer received and added to inventory.</value>
+  </data>
+  <data name="ReplenishSuccess" xml:space="preserve">
+    <value>Shelf replenishment verified successfully.</value>
+  </data>
+  <data name="ReplenishQuantityInvalid" xml:space="preserve">
+    <value>Replenishment quantity must be greater than 0.</value>
+  </data>
+</root>

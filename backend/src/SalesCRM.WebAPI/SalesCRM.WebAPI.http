@@ -1,0 +1,6 @@
+@SalesCRM.WebAPI_HostAddress = http://localhost:5013
+
+GET {{SalesCRM.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

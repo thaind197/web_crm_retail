@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SalesCRM.Application/SalesCRM.Application.csproj" />
+    <Project Path="src/SalesCRM.Domain/SalesCRM.Domain.csproj" />
+    <Project Path="src/SalesCRM.Infrastructure/SalesCRM.Infrastructure.csproj" />
+    <Project Path="src/SalesCRM.Shared/SalesCRM.Shared.csproj" />
+    <Project Path="src/SalesCRM.WebAPI/SalesCRM.WebAPI.csproj" />
+    <Project Path="src/SalesCRM.Tests/SalesCRM.Tests.csproj" />
+  </Folder>
+</Solution>

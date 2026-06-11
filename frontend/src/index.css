@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Fonts */
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  /* Common Brand Colors */
+  --primary-h: 262;
+  --primary-s: 83%;
+  --primary-l: 58%;
+  --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+  --primary-hover: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 8%));
+  
+  --accent-h: 316;
+  --accent-s: 73%;
+  --accent-l: 52%;
+  --accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+
+  --success: #10b981;
+  --error: #f43f5e;
+  --warning: #f59e0b;
+
+  --border-radius-lg: 16px;
+  --border-radius-md: 10px;
+  --border-radius-sm: 6px;
+
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.15s ease;
+}
+
+/* Dark Theme Variables */
+:root, [data-theme="dark"] {
+  --primary-glow: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.35);
+
+  --bg-h: 240;
+  --bg-s: 16%;
+  --bg-l: 6%;
+  --background: hsl(var(--bg-h), var(--bg-s), var(--bg-l));
+  
+  --card-bg: rgba(20, 20, 28, 0.45);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-glow: rgba(0, 0, 0, 0.5);
+  --card-inset: rgba(255, 255, 255, 0.05);
+
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  
+  --sidebar-bg: rgba(15, 15, 22, 0.6);
+  --sidebar-active: rgba(255, 255, 255, 0.06);
+  
+  --input-bg: rgba(0, 0, 0, 0.25);
+  --input-border: rgba(255, 255, 255, 0.18);
+  --input-autofill-bg: rgb(20, 20, 28);
+  --scrollbar-thumb: rgba(255, 255, 255, 0.15);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.3);
+  --body-blob-opacity: 0.18;
+}
+
+/* Light Theme Variables */
+[data-theme="light"] {
+  --primary-glow: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.15);
+
+  --background: #f1f5f9; /* Slate 100 */
+  
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-border: rgba(0, 0, 0, 0.06);
+  --card-glow: rgba(148, 163, 184, 0.12); /* slate-400 glow */
+  --card-inset: rgba(0, 0, 0, 0.02);
+
+  --text-primary: #0f172a; /* Slate 900 */
+  --text-secondary: #334155; /* Slate 700 */
+  --text-muted: #64748b; /* Slate 500 */
+
+  --sidebar-bg: rgba(255, 255, 255, 0.9);
+  --sidebar-active: rgba(0, 0, 0, 0.04);
+
+  --input-bg: rgba(255, 255, 255, 0.8);
+  --input-border: rgba(15, 23, 42, 0.15);
+  --input-autofill-bg: rgb(248, 250, 252);
+  --scrollbar-thumb: rgba(0, 0, 0, 0.12);
+  --scrollbar-thumb-hover: rgba(0, 0, 0, 0.25);
+  --body-blob-opacity: 0.08;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ambient glow blobs in background */
+body::before, body::after {
+  content: '';
+  position: absolute;
+  width: 45vw;
+  height: 45vw;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: var(--body-blob-opacity);
+  pointer-events: none;
+}
+
+body::before {
+  top: -10vw;
+  right: -5vw;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 80%);
+}
+
+body::after {
+  bottom: -15vw;
+  left: -10vw;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 80%);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Helper Utility Classes */
+.glass-container {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 8px 32px 0 var(--card-glow), inset 0 0 0 1px var(--card-inset);
+  border-radius: var(--border-radius-lg);
+}
+
+.glow-text {
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px 0 var(--primary-glow);
+  }
+  50% {
+    box-shadow: 0 0 35px 5px var(--primary-glow);
+  }
+}
+
+/* Universal Form Inputs Styling */
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+input[type="search"],
+input[type="tel"],
+select,
+textarea {
+  background-color: var(--input-bg) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--input-border) !important;
+  transition: var(--transition-fast) !important;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px var(--primary-glow) !important;
+  outline: none !important;
+}

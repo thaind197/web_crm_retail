@@ -1,0 +1,79 @@
+# ============================================
+#  SalesCRM — Root .gitignore
+# ============================================
+
+# ---- OS generated files ----
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ---- IDE / Editor ----
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sw?
+*.swp
+*.swo
+*~
+
+# ---- .NET / Backend ----
+backend/**/bin/
+backend/**/obj/
+backend/**/.vs/
+backend/**/*.user
+backend/**/*.rsuser
+backend/**/launchSettings.json
+backend/**/*.DotSettings.user
+backend/**/TestResults/
+backend/**/*.trx
+backend/**/BenchmarkDotNet.Artifacts/
+
+# NuGet
+backend/**/*.nupkg
+backend/**/*.snupkg
+backend/**/packages/
+
+# ---- Node / Frontend ----
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+frontend/*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ---- Docker ----
+docker-compose.override.yml
+
+# ---- Logs ----
+logs/
+*.log
+
+# ---- Environment / Secrets ----
+.env
+.env.*
+!.env.example
+# appsettings.Development.json
+appsettings.Local.json
+
+# ---- Misc ----
+*.tmp
+*.temp
+*.bak
+*.orig
+*.cache

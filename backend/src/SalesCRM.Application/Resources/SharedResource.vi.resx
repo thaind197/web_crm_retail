@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="0" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ProductNotFound" xml:space="preserve">
+    <value>Sản phẩm có mã ID '{0}' không tồn tại trong hệ thống.</value>
+  </data>
+  <data name="ProductCodeExists" xml:space="preserve">
+    <value>Mã sản phẩm (SKU) '{0}' đã tồn tại trong hệ thống. Vui lòng nhập mã khác.</value>
+  </data>
+  <data name="ProductCodeConflict" xml:space="preserve">
+    <value>Mã sản phẩm (SKU) '{0}' đã được sử dụng bởi một sản phẩm khác.</value>
+  </data>
+  <data name="ProductImageSaveError" xml:space="preserve">
+    <value>Lỗi khi giải mã và lưu hình ảnh sản phẩm: {0}</value>
+  </data>
+  <data name="ProductCreateSuccess" xml:space="preserve">
+    <value>Thêm mới sản phẩm thành công.</value>
+  </data>
+  <data name="ProductUpdateSuccess" xml:space="preserve">
+    <value>Cập nhật thông tin sản phẩm thành công.</value>
+  </data>
+  <data name="ProductDeleteSuccess" xml:space="preserve">
+    <value>Xóa sản phẩm thành công.</value>
+  </data>
+  <data name="ProductDeleteSoftSuccess" xml:space="preserve">
+    <value>Sản phẩm đã phát sinh giao dịch hoặc đang có tồn kho. Hệ thống tự động chuyển đổi sang trạng thái 'Ngừng hoạt động' (Soft-delete) để bảo toàn tính toàn vẹn dữ liệu.</value>
+  </data>
+  <data name="ProductRouteIdMismatch" xml:space="preserve">
+    <value>Mã ID sản phẩm trong đường dẫn không khớp với dữ liệu gửi lên.</value>
+  </data>
+  <data name="LoginInvalidCredentials" xml:space="preserve">
+    <value>Tài khoản hoặc mật khẩu không chính xác.</value>
+  </data>
+  <data name="LoginAccountLocked" xml:space="preserve">
+    <value>Tài khoản của bạn đã bị khóa.</value>
+  </data>
+  <data name="LoginSuccess" xml:space="preserve">
+    <value>Đăng nhập thành công.</value>
+  </data>
+  <data name="ProductCodeRequired" xml:space="preserve">
+    <value>Mã sản phẩm (SKU) không được để trống.</value>
+  </data>
+  <data name="ProductCodeMaxLength" xml:space="preserve">
+    <value>Mã sản phẩm không được vượt quá 50 ký tự.</value>
+  </data>
+  <data name="ProductNameRequired" xml:space="preserve">
+    <value>Tên sản phẩm không được để trống.</value>
+  </data>
+  <data name="ProductNameMaxLength" xml:space="preserve">
+    <value>Tên sản phẩm không được vượt quá 200 ký tự.</value>
+  </data>
+  <data name="ProductSellingPriceRange" xml:space="preserve">
+    <value>Giá bán sản phẩm phải lớn hơn hoặc bằng 0.</value>
+  </data>
+  <data name="ProductImportPriceRange" xml:space="preserve">
+    <value>Giá nhập sản phẩm phải lớn hơn hoặc bằng 0.</value>
+  </data>
+  <data name="ProductIdRequired" xml:space="preserve">
+    <value>ID sản phẩm bắt buộc phải có.</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>Người dùng có mã ID '{0}' không tồn tại trong hệ thống.</value>
+  </data>
+  <data name="UsernameExists" xml:space="preserve">
+    <value>Tên tài khoản '{0}' đã tồn tại trong hệ thống. Vui lòng nhập tên khác.</value>
+  </data>
+  <data name="EmailExists" xml:space="preserve">
+    <value>Địa chỉ Email '{0}' đã được đăng ký bởi tài khoản khác.</value>
+  </data>
+  <data name="RoleNotFound" xml:space="preserve">
+    <value>Vai trò '{0}' không tồn tại trong hệ thống.</value>
+  </data>
+  <data name="BranchNotFound" xml:space="preserve">
+    <value>Chi nhánh có mã ID '{0}' không tồn tại trong hệ thống.</value>
+  </data>
+  <data name="UserCreateSuccess" xml:space="preserve">
+    <value>Tạo tài khoản người dùng thành công.</value>
+  </data>
+  <data name="UserUpdateSuccess" xml:space="preserve">
+    <value>Cập nhật thông tin tài khoản thành công.</value>
+  </data>
+  <data name="UserDeleteSuccess" xml:space="preserve">
+    <value>Xóa tài khoản người dùng thành công.</value>
+  </data>
+  <data name="UserDeleteAdminSelfError" xml:space="preserve">
+    <value>Không thể xóa chính tài khoản đang đăng nhập.</value>
+  </data>
+  <data name="UserUsernameRequired" xml:space="preserve">
+    <value>Tên đăng nhập không được để trống.</value>
+  </data>
+  <data name="UserPasswordRequired" xml:space="preserve">
+    <value>Mật khẩu là bắt buộc và phải dài tối thiểu 6 ký tự.</value>
+  </data>
+  <data name="UserFullNameRequired" xml:space="preserve">
+    <value>Họ và tên không được để trống.</value>
+  </data>
+  <data name="UserEmailRequired" xml:space="preserve">
+    <value>Địa chỉ email không được để trống.</value>
+  </data>
+  <data name="UserEmailInvalid" xml:space="preserve">
+    <value>Định dạng địa chỉ email không hợp lệ.</value>
+  </data>
+  <data name="UserRoleRequired" xml:space="preserve">
+    <value>Vai trò của người dùng bắt buộc phải chọn.</value>
+  </data>
+  <data name="UserIdRequired" xml:space="preserve">
+    <value>ID người dùng bắt buộc phải có.</value>
+  </data>
+  <data name="RouteIdMismatch" xml:space="preserve">
+    <value>Mã ID trên đường dẫn không khớp với mã ID trong dữ liệu gửi lên.</value>
+  </data>
+  <data name="OrderNotFound" xml:space="preserve">
+    <value>Đơn hàng có mã ID '{0}' không tồn tại trong hệ thống.</value>
+  </data>
+  <data name="OrderCreateSuccess" xml:space="preserve">
+    <value>Tạo đơn hàng thành công.</value>
+  </data>
+  <data name="OrderInsufficientStock" xml:space="preserve">
+    <value>Sản phẩm '{0}' không đủ tồn kho. Tồn thực tế: {1}, yêu cầu: {2}.</value>
+  </data>
+  <data name="OrderProductBatchNotFound" xml:space="preserve">
+    <value>Lô sản phẩm '{0}' không tồn tại hoặc đã hết hạn.</value>
+  </data>
+  <data name="OrderProductBatchInsufficient" xml:space="preserve">
+    <value>Lô sản phẩm '{0}' không đủ tồn kho. Tồn thực tế: {1}, yêu cầu: {2}.</value>
+  </data>
+  <data name="PaymentOrderAlreadyPaid" xml:space="preserve">
+    <value>Đơn hàng này đã thanh toán đầy đủ.</value>
+  </data>
+  <data name="PaymentAmountInvalid" xml:space="preserve">
+    <value>Số tiền thanh toán phải lớn hơn 0.</value>
+  </data>
+  <data name="PaymentCreateSuccess" xml:space="preserve">
+    <value>Thanh toán đơn hàng thành công.</value>
+  </data>
+  <data name="LocationNotFound" xml:space="preserve">
+    <value>Vị trí kệ hàng có mã ID '{0}' không tồn tại ở chi nhánh này.</value>
+  </data>
+  <data name="StockTransferNotFound" xml:space="preserve">
+    <value>Phiếu chuyển kho có mã ID '{0}' không tồn tại.</value>
+  </data>
+  <data name="StockTransferStatusInvalid" xml:space="preserve">
+    <value>Trạng thái phiếu chuyển kho không hợp lệ để nhận (phải ở trạng thái Pending hoặc Shipped).</value>
+  </data>
+  <data name="StockTransferDetailNotFound" xml:space="preserve">
+    <value>Phiếu chuyển kho không có sản phẩm nào.</value>
+  </data>
+  <data name="InventoryImportSuccess" xml:space="preserve">
+    <value>Nhập kho theo lô sản phẩm thành công.</value>
+  </data>
+  <data name="StockTransferCreateSuccess" xml:space="preserve">
+    <value>Lập phiếu chuyển kho nội bộ thành công.</value>
+  </data>
+  <data name="StockTransferReceiveSuccess" xml:space="preserve">
+    <value>Nhận hàng và bồi kho từ phiếu chuyển thành công.</value>
+  </data>
+  <data name="ReplenishSuccess" xml:space="preserve">
+    <value>Xác nhận bồi hàng lên kệ thành công.</value>
+  </data>
+  <data name="ReplenishQuantityInvalid" xml:space="preserve">
+    <value>Số lượng bồi hàng lên kệ phải lớn hơn 0.</value>
+  </data>
+</root>

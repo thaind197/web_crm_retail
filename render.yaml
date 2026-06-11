@@ -1,9 +1,9 @@
 services:
   - type: web
     name: sales-crm-backend
-    env: docker
-    dockercontext: ./backend
-    dockerfile: ./backend/Dockerfile
+    runtime: docker
+    dockerContext: ./backend
+    dockerfilePath: ./backend/Dockerfile
     plan: free
     envVars:
       - key: ASPNETCORE_ENVIRONMENT

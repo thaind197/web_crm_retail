@@ -121,7 +121,6 @@ export const Inventory: React.FC = () => {
   const [replenishProduct, setReplenishProduct] = useState('');
   const [replenishLocation, setReplenishLocation] = useState('');
   const [replenishQty, setReplenishQty] = useState(20);
-  const [activeBatches, setActiveBatches] = useState<ProductBatch[]>([]);
   const [recommendedBatch, setRecommendedBatch] = useState<ProductBatch | null>(null);
 
   // Form states - Write-off
@@ -494,7 +493,6 @@ export const Inventory: React.FC = () => {
       .then(res => {
         if (res.data.isSuccess && res.data.data) {
           const batches: ProductBatch[] = res.data.data;
-          setActiveBatches(batches);
           if (batches.length > 0) {
             setRecommendedBatch(batches[0]);
           } else {
@@ -504,11 +502,9 @@ export const Inventory: React.FC = () => {
       })
       .catch(err => {
         console.warn("Failed to fetch product batches.", err);
-        setActiveBatches([]);
         setRecommendedBatch(null);
       });
     } else {
-      setActiveBatches([]);
       setRecommendedBatch(null);
     }
   }, [replenishProduct, token]);

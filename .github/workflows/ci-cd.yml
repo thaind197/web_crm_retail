@@ -19,7 +19,7 @@ jobs:
         dotnet-version: '9.0.x'
 
     - name: Restore dependencies
-      run: dotnet restore backend/src/SalesCRM.WebAPI/SalesCRM.WebAPI.csproj
+      run: dotnet restore backend/SalesCRM.slnx
 
     - name: Build Backend
       run: dotnet build backend/SalesCRM.slnx -c Release --no-restore
@@ -33,11 +33,7 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-dotnet@v4 # Note: Node setup action is setup-node
-      # Correcting the setup-node action below:
 
-  # Let's fix the step to use setup-node
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:

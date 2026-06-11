@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: sales-crm-backend
+    env: docker
+    dockercontext: ./backend
+    dockerfile: ./backend/Dockerfile
+    plan: free
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ConnectionStrings__DefaultConnection
+        fromDatabase:
+          name: sales-crm-db
+          property: connectionString
+
+databases:
+  - name: sales-crm-db
+    plan: free

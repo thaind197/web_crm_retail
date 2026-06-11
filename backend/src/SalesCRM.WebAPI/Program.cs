@@ -55,7 +55,18 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", policy =>
     {
-        policy.WithOrigins("http://localhost:3000", "http://localhost:5173", "http://localhost:5174") // Dev ports
+        policy.SetIsOriginAllowed(origin =>
+              {
+                  if (Uri.TryCreate(origin, UriKind.Absolute, out var uri))
+                  {
+                      var host = uri.Host;
+                      return host == "localhost" || 
+                             host == "127.0.0.1" || 
+                             host.EndsWith(".onrender.com", StringComparison.OrdinalIgnoreCase) || 
+                             host.EndsWith(".vercel.app", StringComparison.OrdinalIgnoreCase);
+                  }
+                  return false;
+              })
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();

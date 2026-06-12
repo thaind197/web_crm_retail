@@ -12,12 +12,7 @@ const getFallbackApiUrl = () => {
       : 'http://localhost:5013';
   }
   
-  // If deployed on Render (e.g. sales-crm-frontend-xxxx.onrender.com)
-  if (hostname.includes('sales-crm-frontend')) {
-    return window.location.origin.replace('sales-crm-frontend', 'sales-crm-backend');
-  }
-  
-  // Fallback to same origin
+  // In production (deployed), we let Nginx reverse proxy requests to the backend
   return window.location.origin;
 };
 

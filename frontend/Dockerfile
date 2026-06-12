@@ -16,4 +16,4 @@ COPY --from=build-stage /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf.template
 
 EXPOSE 80
-CMD ["/bin/sh", "-c", "RESOLVER_IP=$(grep -i '^nameserver' /etc/resolv.conf | head -n1 | cut -d ' ' -f2); if [ -z \"$RESOLVER_IP\" ]; then RESOLVER_IP=\"127.0.0.11\"; fi; sed \"s/DNS_RESOLVER_IP/$RESOLVER_IP/g\" /etc/nginx/nginx.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]
+CMD ["/bin/sh", "-c", "RESOLVER_IP=$(grep -i '^nameserver' /etc/resolv.conf | head -n1 | cut -d ' ' -f2); if [ -z \"$RESOLVER_IP\" ]; then RESOLVER_IP=\"127.0.0.11\"; fi; if [ -z \"$BACKEND_HOST\" ]; then BACKEND_HOST=\"sales-crm-backend\"; fi; sed \"s/DNS_RESOLVER_IP/$RESOLVER_IP/g; s/BACKEND_HOST_PLACEHOLDER/$BACKEND_HOST/g\" /etc/nginx/nginx.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]

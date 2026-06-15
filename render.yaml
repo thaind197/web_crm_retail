@@ -21,7 +21,10 @@ services:
     plan: free
     envVars:
       - key: BACKEND_HOST
-        value: http://sales-crm-backend:8080
+        fromService:
+          type: web
+          name: sales-crm-backend
+          property: host
 
 databases:
   - name: sales-crm-db

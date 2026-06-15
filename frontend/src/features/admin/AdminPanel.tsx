@@ -93,7 +93,10 @@ export const AdminPanel: React.FC = () => {
       // Fallback mocks
       setProducts([
         { id: 'p1', code: 'SP001', name: 'Sữa tươi Vinamilk 1L', price: 30000, barcode: '8934563123456', stockQuantity: 50, imageUrl: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=150&auto=format&fit=crop&q=60' },
-        { id: 'p2', code: 'SP002', name: 'Bánh mì tươi Kinh Đô', price: 15000, barcode: '8934563000123', stockQuantity: 30, imageUrl: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=150&auto=format&fit=crop&q=60' }
+        { id: 'p2', code: 'SP002', name: 'Bánh mì tươi Kinh Đô', price: 15000, barcode: '8934563000123', stockQuantity: 30, imageUrl: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=150&auto=format&fit=crop&q=60' },
+        { id: 'p3', code: 'SP003', name: 'Coca Cola 320ml', price: 10000, barcode: '8930001000320', stockQuantity: 120, imageUrl: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=150&auto=format&fit=crop&q=60' },
+        { id: 'p4', code: 'SP004', name: 'Mì tôm Hảo Hảo chua cay', price: 5000, barcode: '8934563005500', stockQuantity: 200, imageUrl: 'https://images.unsplash.com/photo-1612927601601-6638404737ce?w=150&auto=format&fit=crop&q=60' },
+        { id: 'p5', code: 'SP005', name: 'Nước xả vải Downy 1.8L', price: 125000, barcode: '8934563008800', stockQuantity: 15, imageUrl: 'https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=150&auto=format&fit=crop&q=60' }
       ]);
     } finally {
       setProductsLoading(false);

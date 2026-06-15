@@ -185,10 +185,17 @@ input[type="search"],
 input[type="tel"],
 select,
 textarea {
-  background-color: var(--input-bg) !important;
-  color: var(--text-primary) !important;
-  border: 1px solid var(--input-border) !important;
-  transition: var(--transition-fast) !important;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--input-border);
+  border-radius: var(--border-radius-md);
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: var(--transition-smooth);
 }
 
 input[type="text"]:focus,
@@ -200,7 +207,8 @@ input[type="search"]:focus,
 input[type="tel"]:focus,
 select:focus,
 textarea:focus {
-  border-color: var(--primary) !important;
-  box-shadow: 0 0 0 3px var(--primary-glow) !important;
-  outline: none !important;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+  outline: none;
+  background-color: var(--input-bg);
 }

@@ -131,7 +131,8 @@ export const AdminPanel: React.FC = () => {
           sellingPrice: Number(editingProduct.price),
           importPrice: Number(editingProduct.importPrice || Math.round(Number(editingProduct.price) * 0.7)),
           barcode: editingProduct.barcode || 'N/A',
-          imageUrl: productImageBase64 || editingProduct.imageUrl,
+          imageUrl: productImageBase64 ? undefined : editingProduct.imageUrl,
+          imageBase64: productImageBase64,
           isActive: editingProduct.isActive !== false
         }, { headers: { Authorization: `Bearer ${token}` } });
         triggerNotice('success', 'Cập nhật sản phẩm thành công!');
@@ -143,7 +144,8 @@ export const AdminPanel: React.FC = () => {
           sellingPrice: Number(editingProduct.price),
           importPrice: Number(editingProduct.importPrice || Math.round(Number(editingProduct.price) * 0.7)),
           barcode: editingProduct.barcode || 'N/A',
-          imageUrl: productImageBase64,
+          imageUrl: undefined,
+          imageBase64: productImageBase64,
           isActive: true
         }, { headers: { Authorization: `Bearer ${token}` } });
         triggerNotice('success', 'Thêm sản phẩm thành công!');

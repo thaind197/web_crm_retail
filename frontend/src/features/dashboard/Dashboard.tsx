@@ -84,38 +84,13 @@ export const Dashboard: React.FC = () => {
             throw new Error("No items in response");
           }
         } catch (orderErr) {
-          console.warn("Failed to fetch recent orders. Using fallbacks.", orderErr);
-          setRecentOrders([
-            { id: 'mock-o1', orderCode: 'ORD-2023-001', customer: { name: 'Công ty TNHH Alpha' }, finalAmount: 45000000, status: 2, createdAt: new Date().toISOString() },
-            { id: 'mock-o2', orderCode: 'ORD-2023-002', customer: { name: 'Nguyễn Văn A' }, finalAmount: 2500000, status: 1, createdAt: new Date().toISOString() },
-            { id: 'mock-o3', orderCode: 'ORD-2023-003', customer: { name: 'Cửa hàng Beta' }, finalAmount: 12400000, status: 0, createdAt: new Date().toISOString() }
-          ]);
+          console.warn("Failed to fetch recent orders.", orderErr);
+          setRecentOrders([]);
         }
       } catch (err) {
-        console.warn("Failed to fetch live reports. Using premium mock reports.", err);
-        // Fallback Mock Data for Dashboard Layout Display
-        setData({
-          totalRevenue: 285400000,
-          totalOrders: 840,
-          averageOrderValue: 339700,
-          totalBranches: 3,
-          totalProducts: 45,
-          dailyRevenue: [
-            { dateStr: '05-28', revenue: 4500000, orderCount: 15 },
-            { dateStr: '05-29', revenue: 5200000, orderCount: 18 },
-            { dateStr: '05-30', revenue: 7800000, orderCount: 22 },
-            { dateStr: '05-31', revenue: 9100000, orderCount: 28 },
-            { dateStr: '06-01', revenue: 8400000, orderCount: 24 },
-            { dateStr: '06-02', revenue: 11200000, orderCount: 35 },
-            { dateStr: '06-03', revenue: 12500000, orderCount: 40 }
-          ],
-          topProducts: []
-        });
-        setRecentOrders([
-          { id: 'mock-o1', orderCode: 'ORD-2023-001', customer: { name: 'Công ty TNHH Alpha' }, finalAmount: 45000000, status: 2, createdAt: new Date().toISOString() },
-          { id: 'mock-o2', orderCode: 'ORD-2023-002', customer: { name: 'Nguyễn Văn A' }, finalAmount: 2500000, status: 1, createdAt: new Date().toISOString() },
-          { id: 'mock-o3', orderCode: 'ORD-2023-003', customer: { name: 'Cửa hàng Beta' }, finalAmount: 12400000, status: 0, createdAt: new Date().toISOString() }
-        ]);
+        console.warn("Failed to fetch live reports.", err);
+        setData(null);
+        setRecentOrders([]);
       } finally {
         setLoading(false);
       }

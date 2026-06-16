@@ -155,18 +155,13 @@ export const POS: React.FC = () => {
           setProducts(mapped);
         }
       } catch (err) {
-        console.warn("Failed to fetch live products. Using mock products.", err);
-        setProducts([
-          { id: 'p1', code: 'SP001', name: 'Sữa tươi Vinamilk 1L', price: 30000, barcode: '8934563123456', stockQuantity: 50, imageUrl: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=150&auto=format&fit=crop&q=60' },
-          { id: 'p2', code: 'SP002', name: 'Bánh mì tươi Kinh Đô', price: 15000, barcode: '8934563000123', stockQuantity: 30, imageUrl: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=150&auto=format&fit=crop&q=60' },
-          { id: 'p3', code: 'SP003', name: 'Coca Cola 320ml', price: 10000, barcode: '8930001000320', stockQuantity: 120, imageUrl: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=150&auto=format&fit=crop&q=60' },
-          { id: 'p4', code: 'SP004', name: 'Mì tôm Hảo Hảo chua cay', price: 5000, barcode: '8934563005500', stockQuantity: 200, imageUrl: 'https://images.unsplash.com/photo-1612927601601-6638404737ce?w=150&auto=format&fit=crop&q=60' },
-          { id: 'p5', code: 'SP005', name: 'Nước xả vải Downy 1.8L', price: 125000, barcode: '8934563008800', stockQuantity: 15, imageUrl: 'https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=150&auto=format&fit=crop&q=60' }
-        ]);
+        console.warn("Failed to fetch live products.", err);
+        setProducts([]);
       } finally {
         setLoading(false);
       }
     };
+
     if (activeTab === 'sell') {
       fetchProducts();
     }
@@ -232,11 +227,8 @@ export const POS: React.FC = () => {
         setRecentOrders(res.data.data.items);
       }
     } catch (err) {
-      console.warn("Failed to fetch live orders. Using fallback mock.", err);
-      setRecentOrders([
-        { id: 'mock-o1', orderCode: 'ORD90012', createdAt: new Date(Date.now() - 30 * 60000).toISOString(), finalAmount: 45000, status: 2 /* Paid */, discount: 0, totalAmount: 45000, payments: [{ paymentMethod: 0 /* Cash */ }] },
-        { id: 'mock-o2', orderCode: 'ORD90013', createdAt: new Date(Date.now() - 15 * 60000).toISOString(), finalAmount: 110000, status: 2 /* Paid */, discount: 10000, totalAmount: 120000, payments: [{ paymentMethod: 3 /* BankTransfer */ }] }
-      ]);
+      console.warn("Failed to fetch live orders.", err);
+      setRecentOrders([]);
     } finally {
       setRecentOrdersLoading(false);
     }
@@ -559,27 +551,12 @@ export const POS: React.FC = () => {
         });
       }
     } catch (err: any) {
-      console.warn("Failed live checkout API. Falling back to offline simulation.", err);
-      // Offline Simulation fallback
-      setTimeout(() => {
-        const generatedCode = 'ORD' + Math.floor(Math.random() * 900000 + 100000);
-        const amt = getFinalTotal();
-        setCheckoutResult({
-          success: true,
-          orderId: 'mock-id-' + Date.now(),
-          orderCode: generatedCode,
-          totalAmount: amt,
-          paymentUrl: selectedMethod === 'VnPay' 
-            ? 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?mock=true' 
-            : selectedMethod === 'MoMo' 
-              ? 'https://payment.momo.vn/gw_payment/payment/qr?mock=true' 
-              : undefined,
-          qrPayload: selectedMethod === 'VietQr' 
-            ? `00020101021238570010A00000072701270006970415011311306000999990208QRPAYMENT53037045406${amt}5802VN5913SALESCRM SHOP6005Hanoi62140510CRMSALES123`
-            : undefined,
-          paid: selectedMethod === 'Cash'
-        });
-      }, 600);
+      console.error("Failed live checkout API.", err);
+      const errMsg = err.response?.data?.message || 'Lỗi thanh toán đơn hàng.';
+      setCheckoutResult({
+        success: false,
+        message: errMsg
+      });
     } finally {
       setCheckoutLoading(false);
     }

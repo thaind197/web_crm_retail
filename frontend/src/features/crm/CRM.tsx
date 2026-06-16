@@ -69,18 +69,8 @@ export const CRM: React.FC = () => {
         setCustomers(items || []);
       }
     } catch (err) {
-      console.warn("Failed live customer fetch. Mocking CRM data.", err);
-      // Premium Mock CRM Data
-      const mockList = [
-        { id: 'c1', fullName: 'Nguyễn Văn A', phoneNumber: '0912345678', email: 'anv@gmail.com', loyaltyPoints: 350, ordersCount: 12 },
-        { id: 'c2', fullName: 'Trần Thị B', phoneNumber: '0987654321', email: 'btt@yahoo.com', loyaltyPoints: 120, ordersCount: 5 },
-        { id: 'c3', fullName: 'Lê Văn C', phoneNumber: '0905112233', email: 'clevan@outlook.com', loyaltyPoints: 850, ordersCount: 24 },
-        { id: 'c4', fullName: 'Phạm Minh D', phoneNumber: '0938445566', email: 'minhpham@gmail.com', loyaltyPoints: 45, ordersCount: 2 }
-      ];
-      setCustomers(mockList);
-      if (!selectedCustomer) {
-        setSelectedCustomer(mockList[0]);
-      }
+      console.warn("Failed live customer fetch.", err);
+      setCustomers([]);
     } finally {
       setLoading(false);
     }
@@ -101,12 +91,8 @@ export const CRM: React.FC = () => {
         });
         if (res.data.isSuccess) setHistory(res.data.data);
       } catch (err) {
-        // Mock purchase history
-        setHistory([
-          { orderCode: 'ORD90215', dateStr: '2026-06-02 10:15', totalAmount: 185000, pointsEarned: 18 },
-          { orderCode: 'ORD88421', dateStr: '2026-05-28 16:45', totalAmount: 420000, pointsEarned: 42 },
-          { orderCode: 'ORD71050', dateStr: '2026-05-15 08:30', totalAmount: 95000, pointsEarned: 9 }
-        ]);
+        console.warn("Failed customer purchase history fetch.", err);
+        setHistory([]);
       }
     };
     fetchHistory();
@@ -137,23 +123,9 @@ export const CRM: React.FC = () => {
         setNewEmail('');
         fetchCustomers();
       }
-    } catch (err) {
-      console.warn("Adding offline mockup customer.");
-      const mockNew: Customer = {
-        id: 'c_new_' + Date.now(),
-        fullName: newFullName,
-        phoneNumber: newPhone,
-        email: newEmail || undefined,
-        loyaltyPoints: 0,
-        ordersCount: 0
-      };
-      setCustomers([mockNew, ...customers]);
-      setSelectedCustomer(mockNew);
-      setSuccessMsg(t('crm.add_customer') + " thành công [Offline Mode]!");
-      setIsAddOpen(false);
-      setNewFullName('');
-      setNewPhone('');
-      setNewEmail('');
+    } catch (err: any) {
+      console.error("Failed adding customer.", err);
+      alert(err.response?.data?.message || "Lỗi thêm khách hàng.");
     }
 
     setTimeout(() => setSuccessMsg(null), 3000);

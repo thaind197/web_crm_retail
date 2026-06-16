@@ -151,14 +151,8 @@ export const Inventory: React.FC = () => {
         setProductsList(res.data.data.items);
       }
     } catch (err) {
-      console.warn("Failed fetching products catalog. Using mock catalog.", err);
-      setProductsList([
-        { id: 'p1', code: 'SP001', name: 'Sữa tươi Vinamilk 1L' },
-        { id: 'p2', code: 'SP002', name: 'Bánh mì tươi Kinh Đô' },
-        { id: 'p3', code: 'SP003', name: 'Coca Cola 320ml' },
-        { id: 'p4', code: 'SP004', name: 'Mì tôm Hảo Hảo chua cay' },
-        { id: 'p5', code: 'SP005', name: 'Nước xả vải Downy 1.8L' }
-      ]);
+      console.warn("Failed fetching products catalog.", err);
+      setProductsList([]);
     }
   };
 
@@ -186,20 +180,10 @@ export const Inventory: React.FC = () => {
       });
       if (trfRes.data.isSuccess) setTransfers(trfRes.data.data?.items || []);
     } catch (err) {
-      console.warn("Failed fetching live inventory logs. Mocking dashboards.", err);
-      // Mock alert values
-      setNearExpiry([
-        { id: 'b1', batchCode: 'LOT-MILK-01', productId: 'p1', productName: 'Sữa tươi Vinamilk 1L', quantity: 45, manufacturedDate: '2026-04-10', expiryDate: '2026-06-15', daysRemaining: 12 },
-        { id: 'b2', batchCode: 'LOT-BREAD-03', productId: 'p2', productName: 'Bánh mì tươi Kinh Đô', quantity: 24, manufacturedDate: '2026-05-25', expiryDate: '2026-06-08', daysRemaining: 5 }
-      ]);
-      setLowStock([
-        { id: 'b3', batchCode: 'LOT-COCA-02', productId: 'p3', productName: 'Coca Cola 320ml', quantity: 8, manufacturedDate: '2026-01-10', expiryDate: '2027-01-10', minStockAlert: 20 },
-        { id: 'b5', batchCode: 'LOT-DOWNY-01', productId: 'p5', productName: 'Nước xả vải Downy 1.8L', quantity: 2, manufacturedDate: '2026-02-15', expiryDate: '2028-02-15', minStockAlert: 5 }
-      ]);
-      setTransfers([
-        { id: 't1', transferCode: 'TRF260603001', fromBranchName: 'Chi nhánh Quận 1', toBranchName: 'Chi nhánh Bình Thạnh', status: 'Shipped', notes: 'Luân chuyển sữa tươi cận date', createdAt: '2026-06-03 09:30' },
-        { id: 't2', transferCode: 'TRF260602015', fromBranchName: 'Chi nhánh Quận 7', toBranchName: 'Chi nhánh Quận 1', status: 'Shipped', notes: 'Bổ sung khẩn cấp nước xả vải', createdAt: '2026-06-02 14:15' }
-      ]);
+      console.warn("Failed fetching live inventory logs.", err);
+      setNearExpiry([]);
+      setLowStock([]);
+      setTransfers([]);
     } finally {
       setLoading(false);
     }
@@ -215,12 +199,8 @@ export const Inventory: React.FC = () => {
         setTransactionsLog(res.data.data);
       }
     } catch (err) {
-      console.warn("Failed to fetch live transactions. Using mock fallback.", err);
-      setTransactionsLog([
-        { id: 'tx1', referenceCode: 'LOT-MILK-01', type: 0, quantity: 100, notes: 'Nhập kho lô hàng sữa tươi mới', createdAt: '2026-06-03 08:30:00', product: { code: 'SP001', name: 'Sữa tươi Vinamilk 1L' }, productBatch: { batchCode: 'LOT-MILK-01' } },
-        { id: 'tx2', referenceCode: 'ORD90852', type: 1, quantity: -2, notes: 'Bán hàng tại POS', createdAt: '2026-06-03 16:30:00', product: { code: 'SP001', name: 'Sữa tươi Vinamilk 1L' } },
-        { id: 'tx3', referenceCode: 'STOCKTAKE_20260603', type: 3, quantity: -5, notes: 'Điều chỉnh kiểm kê kho. Chênh lệch: -5', createdAt: '2026-06-03 17:00:00', product: { code: 'SP003', name: 'Coca Cola 320ml' } }
-      ]);
+      console.warn("Failed to fetch live transactions.", err);
+      setTransactionsLog([]);
     } finally {
       setLoading(false);
     }
@@ -236,11 +216,8 @@ export const Inventory: React.FC = () => {
         setShelfStock(res.data.data);
       }
     } catch (err) {
-      console.warn("Failed fetching shelf stock. Using mock data.", err);
-      setShelfStock([
-        { id: 's1', locationCode: 'SHELF-A-01', productCode: 'SP001', productName: 'Sữa tươi Vinamilk 1L', batchCode: 'LOT-MILK-01', quantity: 15 },
-        { id: 's2', locationCode: 'SHELF-A-03', productCode: 'SP002', productName: 'Bánh mì tươi Kinh Đô', batchCode: 'LOT-BREAD-03', quantity: 10 }
-      ]);
+      console.warn("Failed fetching shelf stock.", err);
+      setShelfStock([]);
     } finally {
       setLoading(false);
     }
@@ -294,9 +271,11 @@ export const Inventory: React.FC = () => {
         setErrorMsg(res.data.message || "Không thể nhập lô hàng.");
       }
     } catch (err: any) {
-      console.warn("Goods receipt offline mode simulation.", err);
-      setSuccessMsg(`[Offline Mode] ${t('inventory.import_success')} (Mã Lô: ${importBatchCode})`);
-      setImportBatchCode('');
+      if (err.response && err.response.data && err.response.data.message) {
+        setErrorMsg(err.response.data.message);
+      } else {
+        setErrorMsg("Không thể nhập lô hàng.");
+      }
     } finally {
       setLoading(false);
     }
@@ -334,10 +313,12 @@ export const Inventory: React.FC = () => {
         setTransferNotes('');
         fetchData();
       }
-    } catch (err) {
-      setSuccessMsg(`[Offline Mode] ${t('inventory.transfer_success')}`);
-      setTransferNotes('');
-      fetchData();
+    } catch (err: any) {
+      if (err.response && err.response.data && err.response.data.message) {
+        setErrorMsg(err.response.data.message);
+      } else {
+        setErrorMsg(t('inventory.transfer_error', { defaultValue: 'Lỗi luân chuyển kho.' }));
+      }
     } finally {
       setLoading(false);
     }
@@ -357,9 +338,12 @@ export const Inventory: React.FC = () => {
         setSuccessMsg(t('inventory.receive_success'));
         fetchData();
       }
-    } catch (err) {
-      setSuccessMsg(`[Offline Mode] ${t('inventory.receive_success')}`);
-      setTransfers(transfers.map(t => t.id === transferId ? { ...t, status: 'Received' } : t));
+    } catch (err: any) {
+      if (err.response && err.response.data && err.response.data.message) {
+        setErrorMsg(err.response.data.message);
+      } else {
+        setErrorMsg(t('inventory.receive_error', { defaultValue: 'Lỗi xác nhận nhận hàng.' }));
+      }
     } finally {
       setLoading(false);
     }
@@ -399,9 +383,7 @@ export const Inventory: React.FC = () => {
       if (err.response && err.response.data && err.response.data.message) {
         setErrorMsg(err.response.data.message);
       } else {
-        setSuccessMsg(`[Offline/Fallback] ${t('inventory.replenish_success')} tại kệ ${replenishLocation}`);
-        setReplenishLocation('');
-        fetchShelfStock();
+        setErrorMsg(t('inventory.replenish_error', { defaultValue: 'Lỗi bồi hàng lên kệ.' }));
       }
     } finally {
       setLoading(false);
@@ -605,10 +587,7 @@ export const Inventory: React.FC = () => {
       if (err.response && err.response.data && err.response.data.message) {
         setErrorMsg(err.response.data.message);
       } else {
-        setSuccessMsg(`[Offline/Fallback] ${t('inventory.writeoff_success')}`);
-        setWriteoffProduct('');
-        setWriteoffQty(1);
-        setWriteoffNotes('');
+        setErrorMsg(t('inventory.writeoff_error', { defaultValue: 'Lỗi hủy hàng.' }));
       }
     } finally {
       setLoading(false);

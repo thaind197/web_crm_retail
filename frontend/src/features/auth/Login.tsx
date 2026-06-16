@@ -98,7 +98,7 @@ export const Login: React.FC = () => {
         </button>
         <button 
           type="button"
-          className={`lang-btn ${i18n.language === 'vi' ? 'active' : ''}`} 
+          className={`lang-btn ${i18n.language?.startsWith('vi') ? 'active' : ''}`} 
           onClick={() => changeLanguage('vi')}
         >
           <Globe size={16} />
@@ -106,7 +106,7 @@ export const Login: React.FC = () => {
         </button>
         <button 
           type="button"
-          className={`lang-btn ${i18n.language === 'en' ? 'active' : ''}`} 
+          className={`lang-btn ${i18n.language?.startsWith('en') ? 'active' : ''}`} 
           onClick={() => changeLanguage('en')}
         >
           <Globe size={16} />

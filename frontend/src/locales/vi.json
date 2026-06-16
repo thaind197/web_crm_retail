@@ -243,7 +243,21 @@
     "suggested_replenish_empty": "Tất cả các kệ hàng đều có đủ số lượng.",
     "btn_auto_fill": "Nạp nhanh",
     "th_reason": "Lý do",
-    "type_writeoff": "Hủy hàng"
+    "type_writeoff": "Hủy hàng",
+    "select_product_import": "Chọn sản phẩm nhập lô",
+    "select_branch_receive": "Chi nhánh nhận hàng",
+    "select_branch_placeholder": "-- Chọn chi nhánh nhận --",
+    "product_to_transfer": "Sản phẩm cần chuyển",
+    "qty_to_transfer": "Số lượng chuyển",
+    "send_transfer_btn": "Gửi phiếu chuyển",
+    "active_transfers": "Phiếu chuyển kho đang vận hành",
+    "confirm_receipt_btn": "Xác nhận nhận hàng",
+    "type_transfer_out": "Chuyển đi",
+    "type_transfer_in": "Nhận chuyển",
+    "no_notes": "Không có ghi chú",
+    "transfer_notes_placeholder": "Ghi chú vận chuyển...",
+    "batch_import_btn": "Xác nhận nhập kho",
+    "batch_code_placeholder": "Ví dụ: LOT-MILK-2026"
   },
   "crm": {
     "title": "Quản lý khách hàng (CRM)",

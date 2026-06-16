@@ -243,7 +243,21 @@
     "suggested_replenish_empty": "All shelves are sufficiently stocked.",
     "btn_auto_fill": "Auto Fill",
     "th_reason": "Reason",
-    "type_writeoff": "Write-off"
+    "type_writeoff": "Write-off",
+    "select_product_import": "Select product to import",
+    "select_branch_receive": "Receiving Branch",
+    "select_branch_placeholder": "-- Select Branch --",
+    "product_to_transfer": "Product to transfer",
+    "qty_to_transfer": "Transfer Quantity",
+    "send_transfer_btn": "Send Transfer Sheet",
+    "active_transfers": "Active Stock Transfers",
+    "confirm_receipt_btn": "Confirm Receipt",
+    "type_transfer_out": "Transfer Out",
+    "type_transfer_in": "Transfer In",
+    "no_notes": "No notes",
+    "transfer_notes_placeholder": "Transfer notes...",
+    "batch_import_btn": "Confirm Stock Import",
+    "batch_code_placeholder": "e.g., LOT-MILK-2026"
   },
   "crm": {
     "title": "Customer CRM Management",

@@ -824,13 +824,13 @@ export const Inventory: React.FC = () => {
             
             <div className="form-grid">
               <div className="form-group">
-                <label className="form-label">Chọn sản phẩm nhập lô</label>
+                <label className="form-label">{t('inventory.select_product_import')}</label>
                 <select 
                   className="form-select" 
                   value={importProduct} 
                   onChange={(e) => setImportProduct(e.target.value)}
                 >
-                  <option value="">-- Chọn sản phẩm --</option>
+                  <option value="">{t('common.select_product')}</option>
                   {productsList.map(p => (
                     <option key={p.id} value={p.id}>{p.name} ({p.code})</option>
                   ))}
@@ -842,7 +842,7 @@ export const Inventory: React.FC = () => {
                 <input 
                   type="text" 
                   className="form-input" 
-                  placeholder="Ví dụ: LOT-MILK-2026" 
+                  placeholder={t('inventory.batch_code_placeholder') || "Ví dụ: LOT-MILK-2026"} 
                   value={importBatchCode}
                   onChange={(e) => setImportBatchCode(e.target.value)}
                 />
@@ -881,7 +881,7 @@ export const Inventory: React.FC = () => {
 
             <button type="submit" className="action-submit-btn" disabled={loading}>
               <Download size={18} />
-              <span>Xác nhận nhập kho</span>
+              <span>{t('inventory.batch_import_btn')}</span>
             </button>
           </form>
         )}
@@ -896,26 +896,26 @@ export const Inventory: React.FC = () => {
                 <h4 className="col-title">{t('inventory.create_transfer')}</h4>
                 
                 <div className="form-group">
-                  <label className="form-label">Chi nhánh nhận hàng</label>
+                  <label className="form-label">{t('inventory.select_branch_receive')}</label>
                   <select 
                     className="form-select" 
                     value={transferToBranch}
                     onChange={(e) => setTransferToBranch(e.target.value)}
                   >
-                    <option value="">-- Chọn chi nhánh nhận --</option>
-                    <option value="br-2">Chi nhánh Quận 7</option>
-                    <option value="br-3">Chi nhánh Bình Thạnh</option>
+                    <option value="">{t('inventory.select_branch_placeholder')}</option>
+                    <option value="br-2">{t('inventory.branch_q7', { defaultValue: 'Chi nhánh Quận 7' })}</option>
+                    <option value="br-3">{t('inventory.branch_bt', { defaultValue: 'Chi nhánh Bình Thạnh' })}</option>
                   </select>
                 </div>
 
                 <div className="form-group">
-                  <label className="form-label">Sản phẩm cần chuyển</label>
+                  <label className="form-label">{t('inventory.product_to_transfer')}</label>
                   <select 
                     className="form-select" 
                     value={transferProduct}
                     onChange={(e) => setTransferProduct(e.target.value)}
                   >
-                    <option value="">-- Chọn sản phẩm --</option>
+                    <option value="">{t('common.select_product')}</option>
                     {productsList.map(p => (
                       <option key={p.id} value={p.id}>{p.name}</option>
                     ))}
@@ -923,7 +923,7 @@ export const Inventory: React.FC = () => {
                 </div>
 
                 <div className="form-group">
-                  <label className="form-label">Số lượng chuyển</label>
+                  <label className="form-label">{t('inventory.qty_to_transfer')}</label>
                   <input 
                     type="number" 
                     className="form-input" 
@@ -936,7 +936,7 @@ export const Inventory: React.FC = () => {
                   <label className="form-label">{t('inventory.notes')}</label>
                   <textarea 
                     className="form-textarea" 
-                    placeholder="Ghi chú vận chuyển..." 
+                    placeholder={t('inventory.transfer_notes_placeholder') || "Ghi chú vận chuyển..."} 
                     value={transferNotes}
                     onChange={(e) => setTransferNotes(e.target.value)}
                   />
@@ -944,39 +944,39 @@ export const Inventory: React.FC = () => {
 
                 <button type="submit" className="action-submit-btn" disabled={loading}>
                   <Send size={16} />
-                  <span>Gửi phiếu chuyển</span>
+                  <span>{t('inventory.send_transfer_btn')}</span>
                 </button>
               </form>
 
               {/* Transfers Log & Accept panel */}
               <div className="transfer-list-col">
-                <h4 className="col-title">Phiếu chuyển kho đang vận hành</h4>
+                <h4 className="col-title">{t('inventory.active_transfers')}</h4>
                 <div className="transfers-log-list">
                   {transfers.length === 0 ? (
                     <div className="empty-log">{t('common.no_data')}</div>
                   ) : (
-                    transfers.map(t => (
-                      <div key={t.id} className="transfer-log-card">
+                    transfers.map(transfer => (
+                      <div key={transfer.id} className="transfer-log-card">
                         <div className="log-row1">
-                          <span className="log-code">{t.transferCode}</span>
-                          <span className={`log-status ${t.status.toLowerCase()}`}>{t.status}</span>
+                          <span className="log-code">{transfer.transferCode}</span>
+                          <span className={`log-status ${transfer.status.toLowerCase()}`}>{transfer.status}</span>
                         </div>
                         <div className="log-routes">
-                          <span>{t.fromBranchName}</span>
+                          <span>{transfer.fromBranchName}</span>
                           <span className="arrow">→</span>
-                          <span>{t.toBranchName}</span>
+                          <span>{transfer.toBranchName}</span>
                         </div>
-                        <p className="log-notes">"{t.notes || 'Không có ghi chú'}"</p>
+                        <p className="log-notes">"{transfer.notes || t('inventory.no_notes')}"</p>
                         
                         {/* Show Receive Button if status is Shipped */}
-                        {t.status === 'Shipped' && (
+                        {transfer.status === 'Shipped' && (
                           <button 
                             className="receive-transfer-btn"
-                            onClick={() => handleReceiveTransfer(t.id)}
+                            onClick={() => handleReceiveTransfer(transfer.id)}
                             disabled={loading}
                           >
                             <Check size={14} />
-                            <span>Xác nhận nhận hàng</span>
+                            <span>{t('inventory.confirm_receipt_btn')}</span>
                           </button>
                         )}
                       </div>

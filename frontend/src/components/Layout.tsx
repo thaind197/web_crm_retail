@@ -182,14 +182,14 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             {/* Language Selector */}
             <div className="lang-selector">
               <button 
-                className={`lang-option ${i18n.language === 'vi' ? 'active' : ''}`}
+                className={`lang-option ${i18n.language?.startsWith('vi') ? 'active' : ''}`}
                 onClick={() => changeLanguage('vi')}
               >
                 VI
               </button>
               <span className="lang-divider">|</span>
               <button 
-                className={`lang-option ${i18n.language === 'en' ? 'active' : ''}`}
+                className={`lang-option ${i18n.language?.startsWith('en') ? 'active' : ''}`}
                 onClick={() => changeLanguage('en')}
               >
                 EN

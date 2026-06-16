@@ -253,11 +253,17 @@ export const Inventory: React.FC = () => {
     setErrorMsg(null);
 
     const payload = {
-      productId: importProduct,
-      batchCode: importBatchCode,
-      quantity: importQty,
-      manufacturedDate: importMfg,
-      expiryDate: importExp
+      branchId: branchId || '00000000-0000-0000-0000-000000000000',
+      items: [
+        {
+          productId: importProduct,
+          batchCode: importBatchCode,
+          quantity: importQty,
+          manufacturedDate: importMfg,
+          expiryDate: importExp,
+          minimumStockLevel: 5
+        }
+      ]
     };
 
     try {
@@ -364,7 +370,7 @@ export const Inventory: React.FC = () => {
     const payload = {
       locationCode: replenishLocation,
       productId: replenishProduct,
-      productBatchId: null,
+      productBatchId: recommendedBatch?.id || null,
       quantity: replenishQty
     };
 

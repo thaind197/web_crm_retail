@@ -284,16 +284,9 @@ export const POS: React.FC = () => {
         setShowCreateCustomerForm(false);
         setNewCustomerName('');
       }
-    } catch (err) {
-      console.warn("Creating customer offline simulation.");
-      setSelectedCustomer({
-        id: 'cust-new-' + Date.now(),
-        name: newCustomerName,
-        phone: customerPhone,
-        loyaltyPoints: 0
-      });
-      setShowCreateCustomerForm(false);
-      setNewCustomerName('');
+    } catch (err: any) {
+      console.error("Failed to create customer.", err);
+      alert(err.response?.data?.message || "Lỗi tạo khách hàng mới.");
     } finally {
       setCreateCustomerLoading(false);
     }

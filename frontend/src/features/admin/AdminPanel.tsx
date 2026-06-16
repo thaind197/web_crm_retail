@@ -127,12 +127,13 @@ export const AdminPanel: React.FC = () => {
         await axios.put(`${API_BASE_URL}/api/products/${editingProduct.id}`, {
           id: editingProduct.id,
           name: editingProduct.name,
-          code: editingProduct.code,
+          code: editingProduct.code || null,
+          description: null,
           sellingPrice: Number(editingProduct.price),
           importPrice: Number(editingProduct.importPrice || Math.round(Number(editingProduct.price) * 0.7)),
           barcode: editingProduct.barcode || 'N/A',
-          imageUrl: productImageBase64 ? undefined : editingProduct.imageUrl,
-          imageBase64: productImageBase64,
+          imageUrl: productImageBase64 ? null : (editingProduct.imageUrl || null),
+          imageBase64: productImageBase64 || null,
           isActive: editingProduct.isActive !== false
         }, { headers: { Authorization: `Bearer ${token}` } });
         triggerNotice('success', 'Cập nhật sản phẩm thành công!');
@@ -140,12 +141,13 @@ export const AdminPanel: React.FC = () => {
         // Create product
         await axios.post(`${API_BASE_URL}/api/products`, {
           name: editingProduct.name,
-          code: undefined, // Let backend auto-generate code
+          code: null, // Let backend auto-generate code
+          description: null,
           sellingPrice: Number(editingProduct.price),
           importPrice: Number(editingProduct.importPrice || Math.round(Number(editingProduct.price) * 0.7)),
           barcode: editingProduct.barcode || 'N/A',
-          imageUrl: undefined,
-          imageBase64: productImageBase64,
+          imageUrl: null,
+          imageBase64: productImageBase64 || null,
           isActive: true
         }, { headers: { Authorization: `Bearer ${token}` } });
         triggerNotice('success', 'Thêm sản phẩm thành công!');
